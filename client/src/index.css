@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .sidebar-icon-box {
+        @apply w-12 h-12 mx-auto 
+        flex flex-col justify-center justify-items-center items-center
+        rounded-2xl
+        text-gray-300 hover:text-white hover:bg-gray-500
+        transition-all ease-linear
+    }
+    .sidebar-icon {
+        @apply w-6 h-6
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #BBB;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
