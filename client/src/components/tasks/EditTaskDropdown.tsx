@@ -1,8 +1,10 @@
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react"
-import { ITask, Priority, Status } from '../../interfaces/task';
+import { ITask } from '../../interfaces/task';
 import { updateTask } from '../../services/taskService';
+import { Status } from '../../interfaces/status';
+import { Priority } from '../../interfaces/priority';
 
 export const EditTaskDropdown = ({id, initialValue, field, setTask, setTasks}: 
                                     {id: string, initialValue: string, field: string,

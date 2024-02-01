@@ -30,7 +30,7 @@ export const CreateTaskForm = ({setTasks, setForm}: {
         const taskData: ITaskDataCreate = {
             name: name.toString(),
             description: description.toString(),
-            deadline: deadline.toLocaleString()
+            deadline: new Date(deadline.toString())
         }
 
         if (!taskData.name) {

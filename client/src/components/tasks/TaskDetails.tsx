@@ -16,13 +16,16 @@ export const TaskDetails = ({setTasks}: {setTasks: React.Dispatch<React.SetState
         if (!taskId) return;
 
         getTask(taskId).then(task => {
+            if (task.data.id !== taskId) {
+                navigate("/not-found");
+                return;
+            }
             setTask(task.data);
         })
     }, [taskId])
 
-    const formatDate = (dateString: string) => {
-        const date = new Date(dateString);
-        return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric"})
+    const formatDate = (date: Date) => {
+        return new Date(date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric"})
     }
 
     const handleDelete = () => {
@@ -35,14 +38,14 @@ export const TaskDetails = ({setTasks}: {setTasks: React.Dispatch<React.SetState
     return (
         <>
             {!!taskId && !!task &&
-            <div className="w-2/3 flex flex-col gap-4">
-                <div className="p-4 border-b border-gray-200">
+            <div className="w-2/3 flex flex-col gap-4 overflow-auto">
+                <div className="py-4 px-8 border-b border-gray-200">
                     { editNameForm ? 
                         <EditTaskForm id={taskId} field={"name"} initialValue={task.name} setForm={setEditNameForm} setTask={setTask} setTasks={setTasks}/> :
                         <p onClick={() => setEditNameForm(true)} className="text-3xl font-medium pt-1 pl-1 cursor-pointer">{task.name}</p>
                     }
                 </div>
-                <div className="py-2 px-4">
+                <div className="py-2 px-8">
                     <p className="text-2xl font-medium mb-1">Description</p>
                     { editDescriptionForm ? 
                         <EditTaskForm id={taskId} field={"description"} initialValue={task.description} setForm={setEditDescriptionForm} setTask={setTask} setTasks={setTasks} /> :
@@ -51,7 +54,7 @@ export const TaskDetails = ({setTasks}: {setTasks: React.Dispatch<React.SetState
                             <p onClick={() => setEditDescriptionForm(true)} className="text-base text-gray-900 mt-2 ml-1 cursor-pointer">{task.description}</p>)
                     }
                 </div>
-                <div className="py-2 px-4 flex flex-row justify-items-start">
+                <div className="py-2 px-8 flex flex-row justify-items-start">
                     <div className="w-1/4">
                         <p>Status: </p>
                         <EditTaskDropdown id={taskId} initialValue={task.status.toString()} field="status" setTask={setTask} setTasks={setTasks} />
@@ -75,7 +78,7 @@ export const TaskDetails = ({setTasks}: {setTasks: React.Dispatch<React.SetState
                     {/* TODO perhaps change the priority and deadline in the task itself instead of hiding it when its complete/archived/cancelled */}
 
                 </div>
-                <div className="py-2 px-4">
+                <div className="pt-2 pb-24 px-8">
                     <button className='px-6 py-2 rounded-xl border-none bg-red-200 hover:bg-red-300 shadow-sm' onClick={handleDelete}>Delete</button>
                 </div>
             </div>}

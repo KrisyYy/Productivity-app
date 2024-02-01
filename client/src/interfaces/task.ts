@@ -1,3 +1,6 @@
+import { Priority } from "./priority";
+import { Status } from "./status";
+
 export interface ITask {
     id: string;
     userId: string;
@@ -5,35 +8,22 @@ export interface ITask {
     description: string;
     status: Status;
     priority: Priority;
-    deadline: string;
+    deadline: Date;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export interface ITaskDataCreate {
     name: string;
     description: string;
-    deadline: string;
+    deadline: Date;
 }
 
 export interface ITaskDataUpdate {
     id: string;
     name?: string;
     description?: string;
-    deadline?: string;
+    deadline?: Date;
     status?: Status;
     priority?: Priority;
-}
-
-export enum Status {
-    pending = "Pending",
-    inprogress = "In Progress",
-    onhold = "On Hold",
-    completed = "Completed",
-    archived = "Archived",
-    cancelled = "Cancelled"
-}
-
-export enum Priority {
-    low = "Low",
-    medium = "Medium",
-    high = "High"
 }

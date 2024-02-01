@@ -16,14 +16,14 @@ export const SidePanel = () => {
                 <Link className='sidebar-icon-box' to={"/tasks"}>
                     <FontAwesomeIcon className='sidebar-icon' icon={icon({name: 'list-check'})} />
                 </Link>
-                <Link className='sidebar-icon-box' to={"/tasks"}>
+                <Link className='sidebar-icon-box' to={"/notes"}>
                     <FontAwesomeIcon className='sidebar-icon' icon={icon({name: 'note-sticky'})} />
                 </Link>
             </div>
             <div>
-                <p className='sidebar-icon-box'>
+                <Link className='sidebar-icon-box' to={"/profile"}>
                     <FontAwesomeIcon className='sidebar-icon' icon={icon({name: 'user'})} />
-                </p>
+                </Link>
             </div>
         </div>
     )

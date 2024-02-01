@@ -18,8 +18,7 @@ export const EditTaskForm = ({id, field, initialValue, setForm, setTask, setTask
     }
 
     const validate = (val: string) => {
-        if (field === "name" && (val.length === 0 || val.length > 50) ||
-            field === "description" && val.length > 500) { // TODO char limit 255 from server
+        if (field === "name" && (val.length === 0 || val.length > 50)) { 
             setIsValid(false); // TODO temp validation code
         }
         else setIsValid(true);

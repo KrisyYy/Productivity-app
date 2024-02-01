@@ -1,4 +1,4 @@
-const db = require('../models/index')
+const db = require('../models/index');
 const Task = db.tasks;
 
 exports.create = (req, res) => {
@@ -7,19 +7,11 @@ exports.create = (req, res) => {
             message: "Task can't be empty"
         })
     }
-    
-    // if(!!req.body.deadline && Date.parse(req.body.deadline) <= Date.now()) {
-    //     req.status(400).send({
-    //         message: "Task can't be due in the past"
-    //     })
-    // }
 
     const task = {
-        userId: "111", //TODO hardcoded userId
+        userId: "7877345b-65b8-4338-9825-a7cd2850d4b8", // TODO hardcoded userId
         name: req.body.name,
         description: req.body.description,
-        status: "pending",
-        priority: "low",
         deadline: req.body.deadline
     }
 
@@ -46,7 +38,8 @@ exports.findAll = (req, res) => {
 }
 
 exports.findOne = (req, res) => {
-     Task.findByPk(req.params.id).then(data => {
+     Task.findByPk(req.params.id)
+     .then(data => {
         if (data) {
             res.send(data);
         }
