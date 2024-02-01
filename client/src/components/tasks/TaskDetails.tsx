@@ -6,13 +6,15 @@ import { EditTaskForm } from "./EditTaskForm";
 import { EditTaskDropdown } from "./EditTaskDropdown";
 
 export const TaskDetails = ({setTasks}: {setTasks: React.Dispatch<React.SetStateAction<ITask[]>>}) => {
-    const [task, setTask] = useState<ITask>();
     const { taskId } = useParams() as { taskId: string };
+    const [task, setTask] = useState<ITask>();
     const [editNameForm, setEditNameForm] = useState<boolean>(false);
     const [editDescriptionForm, setEditDescriptionForm] = useState<boolean>(false);
     const navigate = useNavigate();
 
     useEffect(() => {
+        if (!taskId) return;
+
         getTask(taskId).then(task => {
             setTask(task.data);
         })
@@ -32,7 +34,7 @@ export const TaskDetails = ({setTasks}: {setTasks: React.Dispatch<React.SetState
 
     return (
         <>
-            {!!task &&
+            {!!taskId && !!task &&
             <div className="w-2/3 flex flex-col gap-4">
                 <div className="p-4 border-b border-gray-200">
                     { editNameForm ? 
