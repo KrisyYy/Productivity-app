@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { register } from "../../services/userService";
+import { register } from "../../services/authService";
 import { Link, useNavigate } from "react-router-dom";
 
 export const Register = () => {
@@ -42,7 +42,7 @@ export const Register = () => {
                 </div>
 
                 <button className="block px-6 py-2 w-full rounded-lg border-none bg-slate-200 hover:bg-slate-300 shadow-sm" type="submit">Sign Up</button>
-                <p className="text-sm mt-1">Already have an account? <Link className="text-blue-600" to={"/login"}>Click here to sign in.</Link></p>
+                <p className="text-sm mt-1">Already have an account? <Link className="text-blue-600" to={"/signin"}>Click here to sign in.</Link></p>
             </form>
         </div>
     )

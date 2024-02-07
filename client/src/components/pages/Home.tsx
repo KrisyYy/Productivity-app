@@ -1,12 +1,27 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { currentUser, logout } from "../../services/authService"
 
 export const Home = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate("/");
+    }
     
     return (
         <div>
             <h1>Dashboard</h1>
-            <Link to={"/login"}>Sign In</Link>
-            <Link to={"/register"}>Sign Up</Link>
+            { !currentUser() ?
+                <>
+                <Link to={"/signin"}>Login</Link>
+                <Link to={"/signup"}>Register</Link>
+                </>
+                :
+                <button onClick={() => handleLogout()}>Logout</button>
+                
+            }
+            
         </div>
     )
 }

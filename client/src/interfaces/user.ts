@@ -8,7 +8,7 @@ export interface IUser {
     createdAt: string
 }
 
-export interface IUserDataSignup {
+export interface IUserDataRegister {
     username: string,
     email: string,
     password: string

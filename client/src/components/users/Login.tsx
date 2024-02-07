@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { login } from "../../services/userService";
+import { login } from "../../services/authService";
 import { Link, useNavigate } from "react-router-dom";
 
 export const Login = () => {
@@ -35,7 +35,7 @@ export const Login = () => {
                 </div>
 
                 <button className="block px-6 py-2 w-full rounded-lg border-none bg-slate-200 hover:bg-slate-300 shadow-sm" type="submit">Sign in</button>
-                <p className="text-sm mt-1">Don't have an account? <Link className="text-blue-600" to={"/register"}>Click here to sign up.</Link></p>
+                <p className="text-sm mt-1">Don't have an account? <Link className="text-blue-600" to={"/signup"}>Click here to sign up.</Link></p>
             </form>
         </div>
     )

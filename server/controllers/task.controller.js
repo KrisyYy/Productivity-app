@@ -9,7 +9,7 @@ exports.create = (req, res) => {
     }
 
     const task = {
-        userId: "7877345b-65b8-4338-9825-a7cd2850d4b8", // TODO hardcoded userId
+        userId: req.userId,
         name: req.body.name,
         description: req.body.description,
         deadline: req.body.deadline
