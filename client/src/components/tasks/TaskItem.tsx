@@ -8,8 +8,9 @@ import { Priority } from "../../interfaces/priority";
 
 export const TaskItem = ({task}: {task: ITask}) => {
 
-    const date = new Date(task.deadline);
-    const dateFormatted = date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric"})
+    const dateFormatted = (date: Date) => {
+        return new Date(date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric"});
+    }
 
     const getStatusOrPriorityName = (value: string, field: string) => {
         const values = Object.values(field === "status" ? Status : Priority).filter(v => isNaN(Number(v)));
@@ -20,35 +21,45 @@ export const TaskItem = ({task}: {task: ITask}) => {
 
     const statusBgColor = (status: string) => {
         switch(status) {
-            case "onhold": return " bg-orange-200";
-            case "pending": return " bg-blue-200";
-            case "inprogress": return " bg-yellow-200";
-            case "completed": return " bg-green-200";
-            case "cancelled": return " bg-red-200";
-            case "archived": return " bg-gray-200";
+            case "onhold": return " bg-orange-100 text-orange-800";
+            case "pending": return " bg-blue-100 text-blue-800";
+            case "inprogress": return " bg-amber-100 text-amber-800";
+            case "completed": return " bg-teal-100 text-teal-800";
+            case "cancelled": return " bg-red-100 text-red-800";
+            case "archived": return " bg-gray-100 text-gray-800";
         }
     }
 
     const priorityBgColor = (priority: string) => {
         switch(priority) {
-            case "low": return " bg-gray-200";
-            case "medium": return " bg-orange-200";
-            case "high": return " bg-red-200";
+            case "low": return " bg-gray-100 text-gray-800";
+            case "medium": return " bg-orange-100 text-orange-800";
+            case "high": return " bg-red-200 text-red-800";
         }
     }
 
-    // TODO deadline different colors depending on how close it is
+    const deadlineBgColor = (deadline: Date) => {
+        const now = new Date();
+        const date = new Date(deadline);        
+        const diffInDays = Math.ceil((date.getTime() - now.getTime()) / 1000 / 60 / 60 / 24);
+        if (diffInDays < 0) return " bg-red-200 text-red-800";
+        else if (diffInDays < 1) return " bg-orange-100 text-orange-800";
+        else if (diffInDays < 3) return " bg-amber-100 text-amber-800";
+        else return " bg-gray-100 text-gray-800";
+    }
+
+    // TODO HORRIBLE COLORS
 
     return(
         <Link to={'/tasks/' + task.id} className='block p-4 pt-3 w-full hover:bg-slate-100'>
             <p className="pb-2">{task.name}</p>
-            <div className='flex flex-row gap-x-4'>
-                <p className={"p-1 text-xs font-semibold text-gray-800 rounded-md" + statusBgColor(task.status)}>{getStatusOrPriorityName(task.status, "status")}</p>
+            <div className='flex flex-row flex-wrap gap-x-4 items-center pb-2'>
+                <p className={"px-1 py-0.5 text-xs font-semibold rounded-md" + statusBgColor(task.status)}>{getStatusOrPriorityName(task.status, "status")}</p>
                 { !["completed", "archived", "cancelled"].includes(task.status) &&
-                <p className={"p-1 text-xs font-semibold text-gray-800 rounded-md" + priorityBgColor(task.priority)}>{getStatusOrPriorityName(task.priority, "priority")}</p>}
+                <p className={"px-1 py-0.5 text-xs font-semibold rounded-md" + priorityBgColor(task.priority)}>{getStatusOrPriorityName(task.priority, "priority")}</p>}
                 { (!!task.deadline && !["completed", "archived", "cancelled"].includes(task.status)) && 
-                <p className="p-1 text-xs font-semibold text-gray-800 bg-gray-200 rounded-md">
-                    <FontAwesomeIcon icon={icon({name: 'clock', style: 'regular'})} /> {dateFormatted}
+                <p className={"px-1 py-0.5 text-xs font-semibold rounded-md" + deadlineBgColor(task.deadline)}>
+                    <FontAwesomeIcon icon={icon({name: 'clock', style: 'regular'})} /> {dateFormatted(task.deadline)}
                 </p> }
                 {/* TODO perhaps change the priority and deadline in the task itself instead of hiding it when its complete/archived/cancelled */}
             </div>

@@ -22,7 +22,7 @@ export const TaskDetails = ({setTasks}: {setTasks: React.Dispatch<React.SetState
             }
             setTask(task.data);
         })
-    }, [taskId])
+    }, [navigate, taskId])
 
     const formatDate = (date: Date) => {
         return new Date(date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric"})

@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyparser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const db = require('./models/index.js');
+const authRoutes = require('./routes/auth.js');
 const taskRoutes = require('./routes/tasks.js');
 const userRoutes = require('./routes/users.js');
 const PORT = process.env.PORT || 8080;
@@ -20,7 +21,8 @@ app.use(cookieParser())
 db.sequelize.sync();
 
 app.use('/tasks', taskRoutes);
-app.use('/user', userRoutes);
+app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
 
 
 app.listen(PORT, () => {

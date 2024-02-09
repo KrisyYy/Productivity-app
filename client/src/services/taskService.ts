@@ -3,11 +3,11 @@ import { ITask, ITaskDataCreate, ITaskDataUpdate } from "../interfaces/task";
 import { authHeader } from "./auth-header";
 
 export const getAllTasks = () => {
-    return http.get<ITask[]>("/tasks", { headers: authHeader() });
+    return http.get<ITask[]>("/tasks");
 }
 
 export const getTask = (id: string) => {
-    return http.get<ITask>("/tasks/" + id, { headers: authHeader() });
+    return http.get<ITask>("/tasks/" + id);
 }
 
 export const createTask = (data: ITaskDataCreate) => {

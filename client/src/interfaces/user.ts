@@ -8,6 +8,11 @@ export interface IUser {
     createdAt: string
 }
 
+export interface IUserItem {
+    id: string,
+    username: string
+}
+
 export interface IUserDataRegister {
     username: string,
     email: string,
