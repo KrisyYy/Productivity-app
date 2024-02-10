@@ -8,7 +8,8 @@ module.exports = (sequelize, Sequelize) => {
         },
         username: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         email: {
             type: Sequelize.STRING,
@@ -19,6 +20,11 @@ module.exports = (sequelize, Sequelize) => {
         password: {
             type: Sequelize.STRING,
             allowNull: false
+        },
+        themePreference: {
+            type: Sequelize.STRING,
+            defaultValue: 'light',
+            isIn: [['light', 'dark']]
         }
     })
 

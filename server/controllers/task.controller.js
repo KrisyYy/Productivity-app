@@ -1,30 +1,6 @@
 const db = require('../models/index');
 const Task = db.tasks;
 
-exports.create = (req, res) => {
-    if (!req.body.name) {
-        req.status(400).send({
-            message: "Task can't be empty"
-        })
-    }
-
-    const task = {
-        userId: req.userId,
-        name: req.body.name,
-        description: req.body.description,
-        deadline: req.body.deadline
-    }
-
-    Task.create(task)
-    .then(data => {
-        res.send(data);
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred"
-        })
-    })
-}
 
 exports.findAll = (req, res) => {
     Task.findAll().then(data => {
@@ -38,18 +14,44 @@ exports.findAll = (req, res) => {
 }
 
 exports.findOne = (req, res) => {
-     Task.findByPk(req.params.id)
-     .then(data => {
+    Task.findByPk(req.params.id)
+    .then(data => {
         if (data) {
             res.send(data);
         }
         else {
             res.send({
                 message: "Task not found"
-              });
+            });
         }
-     })
-     .catch(err => {
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred"
+        })
+    })
+}
+
+exports.create = (req, res) => {
+    if (!req.body.name) {
+        req.status(400).send({
+            message: "Task can't be empty"
+        })
+    }
+
+    const task = {
+        creatorId: req.userId,
+        name: req.body.name,
+        description: req.body.description,
+        deadline: req.body.deadline
+    }
+
+    console.log(task)
+    Task.create(task)
+    .then(data => {
+        res.send(data);
+    })
+    .catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred"
         })
@@ -101,3 +103,5 @@ exports.delete = (req, res) => {
         });
       });
 }
+
+// TODO create tag

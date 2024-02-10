@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Task = sequelize.define("task", {
+    const Subtask = sequelize.define("subtask", {
         id: {
             primaryKey: true,
             allowNull: false,
@@ -13,14 +13,8 @@ module.exports = (sequelize, Sequelize) => {
         complete: {
             type: Sequelize.BOOLEAN,
             defaultValue: false
-        },
-        description: {
-            type: Sequelize.STRING(8192)
-        },
-        deadline: {
-            type: Sequelize.DATE
         }
     })
-
-    return Task;
-};
+    
+    return Subtask;
+}

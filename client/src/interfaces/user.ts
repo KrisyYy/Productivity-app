@@ -1,11 +1,11 @@
-import { ITask } from "./task"
-
 export interface IUser {
     id: string,
-    tasks: ITask[],
+    tasks: string,
     username: string,
     email: string,
-    createdAt: string
+    themePreference: string,
+    createdAt: string,
+    categories: string[]
 }
 
 export interface IUserItem {

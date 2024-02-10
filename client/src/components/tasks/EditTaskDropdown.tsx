@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react"
 import { ITask } from '../../interfaces/task';
 import { updateTask } from '../../services/taskService';
-import { Status } from '../../interfaces/status';
-import { Priority } from '../../interfaces/priority';
 
 export const EditTaskDropdown = ({id, initialValue, field, setTask, setTasks}: 
                                     {id: string, initialValue: string, field: string,
@@ -13,13 +11,13 @@ export const EditTaskDropdown = ({id, initialValue, field, setTask, setTasks}:
     const [dropdown, setDropdown] = useState(false);
     const [value, setValue] = useState(initialValue);
 
-    const dropDownOptions = Object.values(field === "status" ? Status : Priority).filter(v => isNaN(Number(v)));
+    // const dropDownOptions = Object.values(field === "status" ? Status : Priority).filter(v => isNaN(Number(v)));
 
-    const getCurrentName = (value: string) => {
-        const keys = Object.keys(field === "status" ? Status : Priority).filter(v => isNaN(Number(v)))
-        const index = keys.indexOf(value);
-        return dropDownOptions[index]
-    }
+    // const getCurrentName = (value: string) => {
+    //     const keys = Object.keys(field === "status" ? Status : Priority).filter(v => isNaN(Number(v)))
+    //     const index = keys.indexOf(value);
+    //     return dropDownOptions[index]
+    // }
 
     const handleBlur = ({currentTarget, relatedTarget}: {currentTarget: any, relatedTarget: any}) => {
         if (currentTarget.contains(relatedTarget)) return;
@@ -34,8 +32,8 @@ export const EditTaskDropdown = ({id, initialValue, field, setTask, setTasks}:
     const handleOnSubmit = (e: any) => {
         e.preventDefault();
 
-        const index = dropDownOptions.indexOf(value);
-        const currentValue = Object.keys(field === "status" ? Status : Priority)[index];
+        //const index = dropDownOptions.indexOf(value);
+        const currentValue = ""  //Object.keys(field === "status" ? Status : Priority)[index];
 
         // TODO validate
 
@@ -62,7 +60,7 @@ export const EditTaskDropdown = ({id, initialValue, field, setTask, setTasks}:
         <div onBlur={handleBlur} className="relative inline-block text-left w-32">
             <div>
                 <button type="button" onClick={() => setDropdown(state => !state)} className="inline-flex w-full items-center justify-between gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm divide-gray-200 ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                    {getCurrentName(initialValue)}
+                    {/* {getCurrentName(initialValue)} */}
                     <FontAwesomeIcon icon={icon({name: 'chevron-down'})} />
                 </button>
             </div>
@@ -71,8 +69,8 @@ export const EditTaskDropdown = ({id, initialValue, field, setTask, setTasks}:
             <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <div className="py-1">
                     <form action='submit' onSubmit={handleOnSubmit}>
-                    { dropDownOptions.map(option => 
-                            <button key={option} value={option} onClick={handleChange} className="text-gray-700 block w-full px-4 py-2 text-left text-sm hover:bg-slate-100">{option}</button>)}
+                    {/* { dropDownOptions.map(option => 
+                            <button key={option} value={option} onClick={handleChange} className="text-gray-700 block w-full px-4 py-2 text-left text-sm hover:bg-slate-100">{option}</button>)} */}
                     </form>
                 </div>
             </div>}
