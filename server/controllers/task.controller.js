@@ -46,7 +46,6 @@ exports.create = (req, res) => {
         deadline: req.body.deadline
     }
 
-    console.log(task)
     Task.create(task)
     .then(data => {
         res.send(data);

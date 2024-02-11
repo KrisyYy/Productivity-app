@@ -3,15 +3,25 @@
 @tailwind utilities;
 
 @layer components {
-    .sidebar-icon-box {
-        @apply w-12 h-12 mx-auto 
-        flex flex-col justify-center justify-items-center items-center
-        rounded-2xl
-        text-gray-300 hover:text-white hover:bg-gray-500
-        transition-all ease-linear
+    .icon-box {
+        @apply w-12 h-12 flex justify-center items-center
     }
-    .sidebar-icon {
+    .dark-bg-hover {
+        @apply text-gray-300 hover:text-white hover:bg-gray-500
+        transition-colors ease-linear
+    }
+    .light-bg-hover {
+        @apply text-gray-700 hover:text-gray-800 hover:bg-gray-200
+        transition-colors ease-linear
+    }
+    .icon {
         @apply w-6 h-6
+    }
+
+    .sidebar-tooltip {
+        @apply absolute p-2 ml-1 left-16 min-w-max
+        text-white bg-slate-800 rounded-md shadow-md 
+        transition-all duration-75 scale-0 origin-left
     }
 }
 
