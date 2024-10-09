@@ -1,6 +1,9 @@
 # Productivity app
 
-## Currently in development
+**Development Paused**
+A productivity app built to help users manage tasks efficiently, with future plans to include notes, reminders, and productivity analytics.
 
-Front end is made using React with Typescript, and Tailwind CSS for styling.
-Back end is being developed with nodejs/expressjs, and PostgreSQL for the database. It is currently being hosted on a home server machine with a docker for testing purposes.
+## Tech Stack
+- **Frontend:** React with TypeScript, styled with Tailwind CSS.
+- **Backend:** Node.js with Express, using PostgreSQL for database management.
+- **Hosting:** Testing on a home server setup.
