@@ -1,6 +1,7 @@
 # Productivity app
 
 **Development Paused**
+
 A productivity app built to help users manage tasks efficiently, with future plans to include notes, reminders, and productivity analytics.
 
 ## Tech Stack
