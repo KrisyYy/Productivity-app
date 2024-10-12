@@ -13,6 +13,15 @@ module.exports = (sequelize, Sequelize) => {
         complete: {
             type: Sequelize.BOOLEAN,
             defaultValue: false
+        },
+        taskId: {
+            type: Sequelize.UUID,
+            references: {
+                model: 'tasks',
+                key: 'id'
+            },
+            onDelete: 'SET NULL',
+            onUpdate: 'CASCADE'
         }
     })
     

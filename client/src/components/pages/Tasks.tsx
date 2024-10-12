@@ -22,7 +22,7 @@ export const Tasks = () => {
     return (
         <div className="flex flex-row divide-x divide-gray-200 overflow-hidden h-full">
             <div className="w-1/3 overflow-y-auto h-full scroll-smooth divide-y divide-gray-200">
-            <TaskList tasks={tasks}/>
+            <TaskList tasks={tasks} setTasks={setTasks}/>
             { showCreateForm ? 
                 <CreateTaskForm setTasks={setTasks} setForm={setShowCreateForm}/> 
                 : 

@@ -6,10 +6,9 @@ exports.findAll = (req, res) => {
     Task.findAll().then(data => {
         res.send(data);
     })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred"
-        })
+    .catch(error => {
+        console.error("Error fetching tasks:", error);
+        next(error);
     })
 }
 
@@ -25,10 +24,9 @@ exports.findOne = (req, res) => {
             });
         }
     })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred"
-        })
+    .catch(error => {
+        console.error("Error fetching task:", error);
+        next(error);
     })
 }
 
@@ -50,10 +48,9 @@ exports.create = (req, res) => {
     .then(data => {
         res.send(data);
     })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred"
-        })
+    .catch(error => {
+        console.error("Error creating task:", error);
+        next(error);
     })
 }
 
@@ -73,11 +70,10 @@ exports.update = (req, res) => {
               });
         }
     }))
-    .catch(err => {
-        res.status(500).send({
-          message: "Could not update task"
-        });
-      });
+    .catch(error => {
+        console.error("Error updating task:", error);
+        next(error);
+    });
 }
 
 exports.delete = (req, res) => {
@@ -96,11 +92,10 @@ exports.delete = (req, res) => {
               });
         }
     }))
-    .catch(err => {
-        res.status(500).send({
-          message: "Could not delete task"
-        });
-      });
+    .catch(error => {
+        console.error("Error deleting task:", error);
+        next(error);
+    });
 }
 
 // TODO create tag
