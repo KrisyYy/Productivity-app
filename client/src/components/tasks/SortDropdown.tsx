@@ -1,4 +1,4 @@
-import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dispatch, SetStateAction, useState } from "react"
 import { ITask } from '../../interfaces/task';
@@ -48,7 +48,7 @@ export const SortDropdown = ({setTasks}: {setTasks: Dispatch<SetStateAction<ITas
             <div>
                 <button type="button" onClick={() => setDropdown(state => !state)} className="inline-flex w-full items-center justify-between gap-x-1.5 rounded-md bg-white px-3 py-2 font-semibold text-gray-900 shadow-sm divide-gray-200 ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                     Sort
-                    <FontAwesomeIcon icon={icon({name: 'chevron-down'})} />
+                    <FontAwesomeIcon icon={faChevronDown} />
                 </button>
             </div>
 

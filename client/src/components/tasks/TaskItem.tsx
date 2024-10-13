@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ITask } from "../../interfaces/task"
 import { Link } from 'react-router-dom';
-import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { faClock } from '@fortawesome/free-regular-svg-icons';
 
 
 export const TaskItem = ({task}: {task: ITask}) => {
@@ -58,7 +58,7 @@ export const TaskItem = ({task}: {task: ITask}) => {
                 { (!!task.deadline && !["completed", "archived", "cancelled"].includes(task.status)) &&  */}
                 { task.deadline &&
                 <p className={"px-1 py-0.5 text-xs font-semibold rounded-md" + deadlineBgColor(task.deadline)}>
-                    <FontAwesomeIcon icon={icon({name: 'clock', style: 'regular'})} /> {dateFormatted(task.deadline)}
+                    <FontAwesomeIcon icon={faClock} /> {dateFormatted(task.deadline)}
                 </p> }
             </div>
         </Link>

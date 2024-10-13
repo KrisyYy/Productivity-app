@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: process.env.REACT_APP_BASEURL,
+    baseURL: import.meta.env.VITE_BASEURL,
     headers: {
         "Content-Type": "application/json"
     }

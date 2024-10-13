@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
-import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { currentUser } from "../../services/authService"
 import { useEffect, useState } from "react"
 import { IUser } from "../../interfaces/user"
 import { Searchbar } from "./Searchbar"
+import { faGear, faUser } from "@fortawesome/free-solid-svg-icons"
 
 export const NavBar = () => {
     const [user, setUser] = useState<IUser>();
@@ -21,12 +21,12 @@ export const NavBar = () => {
                     <Link to={"/profile"}>
                         <div className='flex flex-row px-3 h-12 gap-3 items-center mx-2 rounded-3xl select-none light-bg-hover group '>
                             <span className="font-medium">{user.username}</span>
-                            <FontAwesomeIcon className='icon' icon={icon({name: "user"})} />
+                            <FontAwesomeIcon className='icon' icon={faUser} />
                         </div>
                     </Link>
                     <Link to={"/settings"}>
                         <div className='icon-box mx-2 rounded-3xl select-none light-bg-hover group '>
-                            <FontAwesomeIcon className='icon' icon={icon({name: "gear"})} />
+                            <FontAwesomeIcon className='icon' icon={faGear} />
                         </div>
                     </Link>
                 </>

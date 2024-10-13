@@ -1,4 +1,4 @@
-import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react"
 import { ITask } from '../../interfaces/task';
@@ -61,7 +61,7 @@ export const EditTaskDropdown = ({id, initialValue, field, setTask, setTasks}:
             <div>
                 <button type="button" onClick={() => setDropdown(state => !state)} className="inline-flex w-full items-center justify-between gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm divide-gray-200 ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                     {/* {getCurrentName(initialValue)} */}
-                    <FontAwesomeIcon icon={icon({name: 'chevron-down'})} />
+                    <FontAwesomeIcon icon={faChevronDown} />
                 </button>
             </div>
 
