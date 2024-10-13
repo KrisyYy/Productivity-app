@@ -3,41 +3,45 @@
 @tailwind utilities;
 
 @layer components {
-    .icon-box {
-        @apply w-12 h-12 flex justify-center items-center
-    }
-    .dark-bg-hover {
-        @apply text-gray-300 hover:text-white hover:bg-slate-600
-        transition-colors ease-linear
-    }
-    .light-bg-hover {
-        @apply text-gray-700 hover:text-gray-800 hover:bg-gray-200
-        transition-colors ease-linear
-    }
-    .icon {
-        @apply w-6 h-6
-    }
+	.icon-box {
+		@apply w-12 h-12 flex justify-center items-center;
+	}
+	.dark-bg-hover {
+		@apply text-gray-300 hover:text-white hover:bg-slate-600
+        transition-colors ease-linear;
+	}
+	.light-bg-hover {
+		@apply text-gray-700 hover:text-gray-800 hover:bg-gray-200
+        transition-colors ease-linear;
+	}
+	.icon {
+		@apply w-6 h-6;
+	}
 
-    .sidebar-tooltip {
-        @apply absolute p-2 ml-1 left-16 min-w-max
+	.sidebar-tooltip {
+		@apply absolute p-2 ml-3 left-16 min-w-max
         text-white bg-slate-800 rounded-md shadow-md 
-        transition-all duration-75 scale-0 origin-left
-    }
+        transition-all duration-75 scale-0 origin-left;
+	}
+}
+
+p {
+	white-space: pre-wrap;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+	width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+	background: #f1f1f1;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-    background: #BBB;
-    border-radius: 5px;
+	background: #bbb;
+	border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #888;
+	background: #888;
 }
