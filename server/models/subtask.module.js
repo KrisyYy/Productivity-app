@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Task = sequelize.define("task", {
+    const Subtask = sequelize.define("subtask", {
         id: {
             primaryKey: true,
             allowNull: false,
@@ -14,13 +14,16 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.BOOLEAN,
             defaultValue: false
         },
-        description: {
-            type: Sequelize.STRING(8192)
-        },
-        deadline: {
-            type: Sequelize.DATE
+        taskId: {
+            type: Sequelize.UUID,
+            references: {
+                model: 'tasks',
+                key: 'id'
+            },
+            onDelete: 'SET NULL',
+            onUpdate: 'CASCADE'
         }
     })
-
-    return Task;
-};
+    
+    return Subtask;
+}

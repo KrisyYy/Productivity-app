@@ -1,6 +1,35 @@
 const db = require('../models/index');
 const Task = db.tasks;
 
+
+exports.findAll = (req, res) => {
+    Task.findAll().then(data => {
+        res.send(data);
+    })
+    .catch(error => {
+        console.error("Error fetching tasks:", error);
+        next(error);
+    })
+}
+
+exports.findOne = (req, res) => {
+    Task.findByPk(req.params.id)
+    .then(data => {
+        if (data) {
+            res.send(data);
+        }
+        else {
+            res.send({
+                message: "Task not found"
+            });
+        }
+    })
+    .catch(error => {
+        console.error("Error fetching task:", error);
+        next(error);
+    })
+}
+
 exports.create = (req, res) => {
     if (!req.body.name) {
         req.status(400).send({
@@ -9,7 +38,7 @@ exports.create = (req, res) => {
     }
 
     const task = {
-        userId: req.userId,
+        creatorId: req.userId,
         name: req.body.name,
         description: req.body.description,
         deadline: req.body.deadline
@@ -19,40 +48,9 @@ exports.create = (req, res) => {
     .then(data => {
         res.send(data);
     })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred"
-        })
-    })
-}
-
-exports.findAll = (req, res) => {
-    Task.findAll().then(data => {
-        res.send(data);
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred"
-        })
-    })
-}
-
-exports.findOne = (req, res) => {
-     Task.findByPk(req.params.id)
-     .then(data => {
-        if (data) {
-            res.send(data);
-        }
-        else {
-            res.send({
-                message: "Task not found"
-              });
-        }
-     })
-     .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred"
-        })
+    .catch(error => {
+        console.error("Error creating task:", error);
+        next(error);
     })
 }
 
@@ -72,11 +70,10 @@ exports.update = (req, res) => {
               });
         }
     }))
-    .catch(err => {
-        res.status(500).send({
-          message: "Could not update task"
-        });
-      });
+    .catch(error => {
+        console.error("Error updating task:", error);
+        next(error);
+    });
 }
 
 exports.delete = (req, res) => {
@@ -95,9 +92,10 @@ exports.delete = (req, res) => {
               });
         }
     }))
-    .catch(err => {
-        res.status(500).send({
-          message: "Could not delete task"
-        });
-      });
+    .catch(error => {
+        console.error("Error deleting task:", error);
+        next(error);
+    });
 }
+
+// TODO create tag

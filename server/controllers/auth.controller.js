@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const User = db.users;
 
 exports.signUp = async (req, res) => {
+    console.log("Inside auth.controller");
     const userData = {
         username: req.body.username,
         email: req.body.email,

@@ -10,7 +10,7 @@ import { Notes } from "../pages/Notes"
 
 export const Content = () => {
     return (
-        <div className="ml-16 w-full">
+        <div className="m-2">
             <Routes>
                 <Route path="/" element={<Home/>} />
                 <Route path="/signin" element={<Login/>} />

@@ -55,7 +55,7 @@ export const TaskDetails = ({setTasks}: {setTasks: React.Dispatch<React.SetState
                     }
                 </div>
                 <div className="py-2 px-8 flex flex-row justify-items-start">
-                    <div className="w-1/4">
+                    {/* <div className="w-1/4">
                         <p>Status: </p>
                         <EditTaskDropdown id={taskId} initialValue={task.status.toString()} field="status" setTask={setTask} setTasks={setTasks} />
                     </div>
@@ -63,10 +63,10 @@ export const TaskDetails = ({setTasks}: {setTasks: React.Dispatch<React.SetState
                     <div className="w-1/4">
                         <p>Priority: </p>
                         <EditTaskDropdown id={taskId} initialValue={task.priority.toString()} field="priority" setTask={setTask} setTasks={setTasks} />
-                    </div>
-                    }
+                    </div>} */}
                     
-                    {(!!task.deadline && !["completed", "archived", "cancelled"].includes(task.status)) && 
+                    {/* {(!!task.deadline && !["completed", "archived", "cancelled"].includes(task.status)) &&  */}
+                    { task.deadline &&
                         <div className="w-1/4">
                             <p>Due: {formatDate(task.deadline)}</p>
                         </div>
@@ -74,8 +74,6 @@ export const TaskDetails = ({setTasks}: {setTasks: React.Dispatch<React.SetState
                     //     <EditTaskForm id={taskId} field={"deadline"} initialValue={task.deadline} setForm={setEditDescriptionForm} setTask={setTask} setTasks={setTasks} />
                     // </div>
                     }
-
-                    {/* TODO perhaps change the priority and deadline in the task itself instead of hiding it when its complete/archived/cancelled */}
 
                 </div>
                 <div className="pt-2 pb-24 px-8">

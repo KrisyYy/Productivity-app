@@ -1,14 +1,12 @@
-import { Priority } from "./priority";
-import { Status } from "./status";
-
 export interface ITask {
     id: string;
-    userId: string;
+    users: string[];
+    creatorId: string;
     name: string;
     description: string;
-    status: Status;
-    priority: Priority;
     deadline: Date;
+    tags: string[];
+    categories: string[];
     createdAt: string;
     updatedAt: string;
 }
@@ -19,11 +17,13 @@ export interface ITaskDataCreate {
     deadline: Date;
 }
 
+// TODO string[] (ids) or interface[]?
+
 export interface ITaskDataUpdate {
     id: string;
     name?: string;
     description?: string;
     deadline?: Date;
-    status?: Status;
-    priority?: Priority;
+    tags?: string[];
+    categories?: string[];
 }

@@ -2,11 +2,11 @@ import http from "../http-common";
 import { IUserDataLogin, IUserDataRegister } from "../interfaces/user";
 
 export const register = (data: IUserDataRegister) => {
-    return http.post('/user/signup', data);
+    return http.post('/auth/signup', data);
 }
 
 export const login = (data: IUserDataLogin) => {
-    return http.post('/user/signin', data).then(response => {
+    return http.post('/auth/signin', data).then(response => {
         if (response.data.accessToken) {
             localStorage.setItem("user", JSON.stringify(response.data));
         }
