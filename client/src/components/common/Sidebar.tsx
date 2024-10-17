@@ -1,5 +1,5 @@
 import { SidebarIcon } from "./SidebarIcon";
-import { faBars, faNoteSticky } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faNoteSticky, faTags } from "@fortawesome/free-solid-svg-icons";
 import { faListCheck } from "@fortawesome/free-solid-svg-icons";
 import { faHouse } from "@fortawesome/free-solid-svg-icons/faHouse";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,6 +28,7 @@ export const Sidebar = () => {
 				<SidebarIcon expanded={expanded} route={"/"} icon={faHouse} text={"Dashboard"} />
 				<div className="flex flex-col gap-2 mt-4">
 					<SidebarIcon expanded={expanded} route={"/tasks"} icon={faListCheck} text={"Tasks"} />
+					<SidebarIcon expanded={expanded} route={"/categories"} icon={faTags} text={"Categories"} />
 					<SidebarIcon expanded={expanded} route={"/notes"} icon={faNoteSticky} text={"Notes"} />
 				</div>
 			</div>

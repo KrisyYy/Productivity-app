@@ -1,8 +1,9 @@
 const db = require("../models/index");
+const Category = db.categories;
 const Task = db.tasks;
 
 exports.findAll = (req, res, next) => {
-	Task.findAll({ where: { creatorId: req.userId } })
+	Category.findAll({ where: { userId: req.userId } })
 		.then((data) => {
 			res.status(200).send(data);
 		})
@@ -12,12 +13,12 @@ exports.findAll = (req, res, next) => {
 };
 
 exports.findOne = (req, res, next) => {
-	Task.findByPk(req.params.id)
+	Category.findByPk(req.params.id, { include: [Task] })
 		.then((data) => {
 			if (data) {
-				res.status(200).send(data);
+				res.status(200).send(data.tasks);
 			} else {
-				res.status(404).send({ message: "Task not found" });
+				res.status(404).send({ message: "Category not found" });
 			}
 		})
 		.catch((error) => {
@@ -30,14 +31,12 @@ exports.create = (req, res, next) => {
 		return req.status(400).send({ message: "Name can't be empty" });
 	}
 
-	const task = {
-		creatorId: req.userId,
+	const category = {
+		userId: req.userId,
 		name: req.body.name,
-		description: req.body.description,
-		deadline: req.body.deadline,
 	};
 
-	Task.create(task)
+	Category.create(category)
 		.then((data) => {
 			res.status(201).send(data);
 		})
@@ -47,12 +46,12 @@ exports.create = (req, res, next) => {
 };
 
 exports.update = (req, res, next) => {
-	Task.update(req.body, { where: { id: req.params.id } })
+	Category.update(req.body, { where: { id: req.params.id } })
 		.then((num) => {
 			if (num == 1) {
-				res.status(200).send({ message: "Task updated successfully" });
+				res.status(200).send({ message: "Category updated successfully" });
 			} else {
-				res.status(404).send({ message: "Task not found" });
+				res.status(404).send({ message: "Category not found" });
 			}
 		})
 		.catch((error) => {
@@ -61,12 +60,12 @@ exports.update = (req, res, next) => {
 };
 
 exports.delete = (req, res, next) => {
-	Task.destroy({ where: { id: req.params.id } })
+	Category.destroy({ where: { id: req.params.id } })
 		.then((num) => {
 			if (num == 1) {
-				res.status(200).send({ message: "Task deleted successfully" });
+				res.status(200).send({ message: "Category deleted successfully" });
 			} else {
-				res.status(404).send({ message: "Task not found" });
+				res.status(404).send({ message: "Category not found" });
 			}
 		})
 		.catch((error) => {

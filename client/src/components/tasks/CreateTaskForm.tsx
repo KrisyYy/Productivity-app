@@ -66,9 +66,7 @@ export const CreateTaskForm = ({
 				</div>
 
 				<div>
-					<label
-						htmlFor="description"
-						className="block text-sm font-medium leading-6 text-gray-900">
+					<label htmlFor="description" className="block text-sm font-medium leading-6 text-gray-900">
 						Description
 					</label>
 					<textarea

@@ -1,21 +1,17 @@
 const db = require("../models/index");
 const User = db.users;
 
-exports.getUser = (req, res) => {
+exports.getUser = (req, res, next) => {
 	User.findByPk(req.params.id)
 		.then((data) => {
 			if (data) {
-				res.send(data);
+				res.status(200).send(data);
 			} else
-				res.send({
+				res.status(404).send({
 					message: "User not found",
 				});
 		})
-		.catch((err) => {
-			res.status(500).send({
-				message: err.message || "Some error occurred",
-			});
+		.catch((error) => {
+			next(error);
 		});
 };
-
-// TODO create category
