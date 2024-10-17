@@ -1,10 +1,9 @@
-import { currentUser } from "./authService"
+import { currentUser } from "./authService";
 
 export const authHeader = () => {
-    const user = currentUser();
+	const user = currentUser();
 
-    if (user && user.accessToken) {
-        return { 'x-access-token': user.accessToken };
-    }
-    else return {};
-}
+	if (user && user.accessToken) {
+		return { "x-access-token": user.accessToken };
+	} else return {};
+};
