@@ -8,6 +8,7 @@ router.use(verifyToken);
 
 router.get("/", tasks.findAll);
 router.get("/:id", isTaskCreator, tasks.findOne);
+router.get("/:id/categories", isTaskCreator, tasks.findCategoriesOfTask);
 router.post("/", tasks.create);
 router.put("/:id", isTaskCreator, tasks.update);
 router.delete("/:id", isTaskCreator, tasks.delete);
