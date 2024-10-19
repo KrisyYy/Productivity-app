@@ -19,7 +19,7 @@
 	}
 
 	.sidebar-tooltip {
-		@apply absolute p-2 ml-3 left-16 min-w-max
+		@apply absolute p-2 ml-3 left-14 z-50 min-w-max
         text-white bg-slate-800 rounded-md shadow-md 
         transition-all duration-75 scale-0 origin-left;
 	}

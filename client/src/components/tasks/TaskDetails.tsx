@@ -4,11 +4,7 @@ import { deleteTask, getTask } from "../../services/taskService";
 import { ITask } from "../../interfaces/task";
 import { EditTaskForm } from "./EditTaskForm";
 
-export const TaskDetails = ({
-	setTasks,
-}: {
-	setTasks: React.Dispatch<React.SetStateAction<ITask[]>>;
-}) => {
+export const TaskDetails = ({ setTasks }: { setTasks: React.Dispatch<React.SetStateAction<ITask[]>> }) => {
 	const { taskId } = useParams() as { taskId: string };
 	const [task, setTask] = useState<ITask>();
 	const [editNameForm, setEditNameForm] = useState<boolean>(false);
@@ -43,7 +39,7 @@ export const TaskDetails = ({
 	};
 
 	return (
-		<>
+		<div className="w-1/2 overflow-y-auto h-full scroll-smooth divide-y divide-gray-200">
 			{!!taskId && !!task && (
 				<div className="w-2/3 flex flex-col gap-4 overflow-auto">
 					<div className="py-4 px-6 border-b border-gray-200">
@@ -57,9 +53,7 @@ export const TaskDetails = ({
 								setTasks={setTasks}
 							/>
 						) : (
-							<p
-								onClick={() => setEditNameForm(true)}
-								className="text-3xl font-medium pt-1 pl-1 cursor-pointer">
+							<p onClick={() => setEditNameForm(true)} className="text-3xl font-medium pt-1 pl-1 cursor-pointer">
 								{task.name}
 							</p>
 						)}
@@ -105,6 +99,6 @@ export const TaskDetails = ({
 					</div>
 				</div>
 			)}
-		</>
+		</div>
 	);
 };
