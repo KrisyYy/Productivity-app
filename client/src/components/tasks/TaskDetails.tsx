@@ -39,10 +39,11 @@ export const TaskDetails = ({ setTasks }: { setTasks: React.Dispatch<React.SetSt
 	};
 
 	return (
-		<div className="w-1/2 overflow-y-auto h-full scroll-smooth divide-y divide-gray-200">
+		<div className="w-5/12 h-full p-4">
 			{!!taskId && !!task && (
-				<div className="w-2/3 flex flex-col gap-4 overflow-auto">
+				<div className="h-full flex flex-col gap-4 rounded-xl bg-gray-200 scroll-smooth overflow-y-auto">
 					<div className="py-4 px-6 border-b border-gray-200">
+						<p className="mb-4 font-medium text-3xl">Task:</p>
 						{editNameForm ? (
 							<EditTaskForm
 								id={taskId}
@@ -53,13 +54,13 @@ export const TaskDetails = ({ setTasks }: { setTasks: React.Dispatch<React.SetSt
 								setTasks={setTasks}
 							/>
 						) : (
-							<p onClick={() => setEditNameForm(true)} className="text-3xl font-medium pt-1 pl-1 cursor-pointer">
+							<p onClick={() => setEditNameForm(true)} className="text-2xl font-medium pt-1 pl-1 cursor-pointer">
 								{task.name}
 							</p>
 						)}
 					</div>
 					<div className="py-2 px-6">
-						<p className="text-2xl font-medium mb-1">Description</p>
+						<p className="text-xl font-medium mb-1">Description</p>
 						{editDescriptionForm ? (
 							<EditTaskForm
 								id={taskId}

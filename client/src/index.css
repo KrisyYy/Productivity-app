@@ -6,6 +6,10 @@
 	.icon-box {
 		@apply w-12 h-12 flex justify-center items-center;
 	}
+	.icon {
+		@apply w-6 h-6;
+	}
+
 	.dark-bg-hover {
 		@apply text-gray-300 hover:text-white hover:bg-slate-600
         transition-colors ease-linear;
@@ -13,9 +17,6 @@
 	.light-bg-hover {
 		@apply text-gray-700 hover:text-gray-800 hover:bg-gray-200
         transition-colors ease-linear;
-	}
-	.icon {
-		@apply w-6 h-6;
 	}
 
 	.sidebar-tooltip {

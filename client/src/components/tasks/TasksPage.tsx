@@ -15,7 +15,7 @@ export const TasksPage = () => {
 	}, []);
 
 	return (
-		<div className="flex w-full h-full flex-row divide-x divide-gray-200">
+		<div className="w-full h-screen flex flex-row">
 			<TaskCategoriesList />
 			<TaskList tasks={tasks} setTasks={setTasks} />
 			<TaskDetails setTasks={setTasks} />

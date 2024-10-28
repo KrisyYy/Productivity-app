@@ -4,7 +4,7 @@ import { CategoryItem } from "./CategoryItem";
 export const CategoryList = ({ categories }: { categories: ICategory[] }) => {
 	return (
 		<>
-			<h1 className="font-medium text-4xl p-4">Manage Categories</h1>
+			<p className="font-medium text-3xl p-4">Manage Categories</p>
 			{categories.map((category) => (
 				<CategoryItem key={category.id} category={category} />
 			))}
