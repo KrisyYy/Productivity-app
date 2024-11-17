@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { currentUser, logout } from "../../services/authService";
+import { currentUser, logout } from "../services/authService";
 
 export const Home = () => {
 	const navigate = useNavigate();

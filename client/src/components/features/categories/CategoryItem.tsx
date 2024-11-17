@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ICategory } from "../../interfaces/category";
+import { ICategory } from "../../../interfaces/category";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export const CategoryItem = ({ category }: { category: ICategory }) => {

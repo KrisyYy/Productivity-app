@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { currentUser, logout } from "../../services/authService";
-import { IUser } from "../../interfaces/user";
+import { currentUser, logout } from "../services/authService";
+import { IUser } from "../interfaces/user";
 import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {

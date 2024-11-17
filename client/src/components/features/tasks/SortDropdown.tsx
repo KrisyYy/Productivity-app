@@ -1,19 +1,13 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dispatch, SetStateAction, useState } from "react";
-import { ITask } from "../../interfaces/task";
+import { ITask } from "../../../interfaces/task";
 
 export const SortDropdown = ({ setTasks }: { setTasks: Dispatch<SetStateAction<ITask[]>> }) => {
 	const [dropdown, setDropdown] = useState(false);
 	const [currentSort, setCurrentSort] = useState("date");
 
-	const handleBlur = ({
-		currentTarget,
-		relatedTarget,
-	}: {
-		currentTarget: any;
-		relatedTarget: any;
-	}) => {
+	const handleBlur = ({ currentTarget, relatedTarget }: { currentTarget: any; relatedTarget: any }) => {
 		if (currentTarget.contains(relatedTarget)) return;
 		setDropdown(false);
 	};

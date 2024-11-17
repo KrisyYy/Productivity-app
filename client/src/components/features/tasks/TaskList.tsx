@@ -2,7 +2,7 @@ import { TaskItem } from "./TaskItem";
 import { SortDropdown } from "./SortDropdown";
 import { useState } from "react";
 import { CreateTaskForm } from "./CreateTaskForm";
-import { ITask } from "../../interfaces/task";
+import { ITask } from "../../../interfaces/task";
 
 export const TaskList = ({
 	tasks,

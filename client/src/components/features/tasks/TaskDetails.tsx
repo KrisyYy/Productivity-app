@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { deleteTask, getTask } from "../../services/taskService";
-import { ITask } from "../../interfaces/task";
+import { deleteTask, getTask } from "../../../services/taskService";
+import { ITask } from "../../../interfaces/task";
 import { EditTaskForm } from "./EditTaskForm";
 
 export const TaskDetails = ({ setTasks }: { setTasks: React.Dispatch<React.SetStateAction<ITask[]>> }) => {

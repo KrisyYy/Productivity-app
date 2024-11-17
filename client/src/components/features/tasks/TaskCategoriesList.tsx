@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAllCategories } from "../../services/categoryService";
-import { ICategory } from "../../interfaces/category";
+import { getAllCategories } from "../../../services/categoryService";
+import { ICategory } from "../../../interfaces/category";
 import { CategoryItem } from "../categories/CategoryItem";
 import { faCalendarAlt, faCalendarDay, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { CategoryItemDefault } from "../categories/CategoryItemDefault";

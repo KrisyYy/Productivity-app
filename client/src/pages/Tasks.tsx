@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { ITask } from "../../interfaces/task";
-import { TaskDetails } from "./TaskDetails";
-import { TaskList } from "./TaskList";
-import { getAllTasks } from "../../services/taskService";
-import { TaskCategoriesList } from "./TaskCategoriesList";
+import { ITask } from "../interfaces/task";
+import { TaskDetails } from "../components/features/tasks/TaskDetails";
+import { TaskList } from "../components/features/tasks/TaskList";
+import { getAllTasks } from "../services/taskService";
+import { TaskCategoriesList } from "../components/features/tasks/TaskCategoriesList";
 
-export const TasksPage = () => {
+export const Tasks = () => {
 	const [tasks, setTasks] = useState<ITask[]>([]);
 
 	useEffect(() => {

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { ICategory } from "../../interfaces/category";
-import { getAllCategories } from "../../services/categoryService";
-import { CreateCategoryForm } from "./CreateCategoryForm";
-import { CategoryList } from "./CategoryList";
+import { ICategory } from "../interfaces/category";
+import { getAllCategories } from "../services/categoryService";
+import { CreateCategoryForm } from "../components/features/categories/CreateCategoryForm";
+import { CategoryList } from "../components/features/categories/CategoryList";
 
-export const CategoriesPage = () => {
+export const Categories = () => {
 	const [categories, setCategories] = useState<ICategory[]>([]);
 
 	useEffect(() => {

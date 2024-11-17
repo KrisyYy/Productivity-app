@@ -1,5 +1,5 @@
-import { ICategory, ICategoryDataCreate } from "../../interfaces/category";
-import { createCategory } from "../../services/categoryService";
+import { ICategory, ICategoryDataCreate } from "../../../interfaces/category";
+import { createCategory } from "../../../services/categoryService";
 
 export const CreateCategoryForm = ({
 	setCategories,

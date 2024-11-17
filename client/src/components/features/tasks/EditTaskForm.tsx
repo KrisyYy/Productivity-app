@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { updateTask } from "../../services/taskService";
-import { ITask } from "../../interfaces/task";
+import { updateTask } from "../../../services/taskService";
+import { ITask } from "../../../interfaces/task";
 
 export const EditTaskForm = ({
 	id,

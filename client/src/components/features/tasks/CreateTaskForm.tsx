@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { ITask, ITaskDataCreate } from "../../interfaces/task";
-import { createTask } from "../../services/taskService";
+import { ITask, ITaskDataCreate } from "../../../interfaces/task";
+import { createTask } from "../../../services/taskService";
 import { useEffect, useRef } from "react";
 
 export const CreateTaskForm = ({

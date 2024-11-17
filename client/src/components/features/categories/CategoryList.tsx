@@ -1,4 +1,4 @@
-import { ICategory } from "../../interfaces/category";
+import { ICategory } from "../../../interfaces/category";
 import { CategoryItem } from "./CategoryItem";
 
 export const CategoryList = ({ categories }: { categories: ICategory[] }) => {

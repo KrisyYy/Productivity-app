@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ITask } from "../../interfaces/task";
+import { ITask } from "../../../interfaces/task";
 import { Link } from "react-router-dom";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";

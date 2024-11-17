@@ -1,8 +1,8 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { ITask } from "../../interfaces/task";
-import { updateTask } from "../../services/taskService";
+import { ITask } from "../../../interfaces/task";
+import { updateTask } from "../../../services/taskService";
 
 export const EditTaskDropdown = ({
 	id,
@@ -28,13 +28,7 @@ export const EditTaskDropdown = ({
 	//     return dropDownOptions[index]
 	// }
 
-	const handleBlur = ({
-		currentTarget,
-		relatedTarget,
-	}: {
-		currentTarget: any;
-		relatedTarget: any;
-	}) => {
+	const handleBlur = ({ currentTarget, relatedTarget }: { currentTarget: any; relatedTarget: any }) => {
 		if (currentTarget.contains(relatedTarget)) return;
 		setDropdown(false);
 	};
